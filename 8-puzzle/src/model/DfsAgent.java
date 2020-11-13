@@ -24,6 +24,8 @@ public class DfsAgent implements SearchAgent {
 	@Override
 	// Calculates the nodes expanded, search depth and running time
 	public boolean performSearch() {
+		// Start time
+		long start = System.currentTimeMillis();
 		// follows the DFS search algorithm
 		// initializing the frontier stack and the visited set
 		Stack<TilesState> frontier = new Stack<TilesState>();
@@ -39,6 +41,10 @@ public class DfsAgent implements SearchAgent {
 			TilesState currentState = frontier.pop();
 			explored.add(currentState.getValue());
 			if (TilesStatesManager.getInstance().isGoalState(currentState)) {
+				// end time in case the goal was found
+				long end = System.currentTimeMillis();
+				// calculating running time in seconds
+				runningTime = (end - start) / 1000;
 				createPathToGoal(currentState);
 				return true;
 			}
@@ -53,10 +59,14 @@ public class DfsAgent implements SearchAgent {
 				}
 			}
 		}
+		// end time in case the goal was found
+		long end = System.currentTimeMillis();
+		// calculating running time in seconds
+		runningTime = (end - start) / 1000;
 		return false;
 	}
 
-	// Adds the frontier and updates the state variables according to it
+	// Adds the frontier and updates the stsate variables according to it
 	private void addFrontier(TilesState state, Stack<TilesState> frontier, ArrayList<Integer> frontierValues) {
 		frontier.push(state);
 		frontierValues.add(state.getValue());
