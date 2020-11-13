@@ -37,17 +37,20 @@ public class TilesStatesFactory {
 		randomInitialState.setDepth(0);
 		return randomInitialState;
 	}
+
 	public TilesState createInitialState(int value) {
 		TilesState initialState = new TilesState(value, getNullParent());
 		initialState.setDepth(0);
 		return initialState;
 	}
+
 	public TilesState createState(int value, TilesState parent) {
 		TilesState state = new TilesState(value, parent);
+		state.setPathCost(parent.getPathCost() + 1);
 		state.setDepth(parent.getDepth() + 1);
 		return state;
 	}
-	
+
 	// given a collection of the possible numbers to encode the state, it returns
 	// the encoding value
 	private int getValue(Collection<Integer> col) {
