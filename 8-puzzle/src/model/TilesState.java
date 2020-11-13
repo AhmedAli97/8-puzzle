@@ -17,8 +17,10 @@ public class TilesState {
 	private int pathCost;
 	private int depth;
 	// we set the value corresponding to blank to be nine instead of zero for more
-	// convenience in implementation considering the case that the encoding value starts with a blank. 
+	// convenience in implementation considering the case that the encoding value
+	// starts with a blank.
 	private static int emptyValue = 9;
+
 	// Constructors
 	public TilesState(int value, int pathCost, TilesState parent) {
 		this.setValue(value);
@@ -32,12 +34,10 @@ public class TilesState {
 	}
 
 	public TilesState(int value) {
-		this.setPathCost(0);
 		this.setValue(value);
 	}
 
 	public TilesState() {
-		this.setPathCost(0);
 	}
 
 	// getters and setters

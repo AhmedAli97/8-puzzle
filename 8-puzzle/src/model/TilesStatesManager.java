@@ -123,14 +123,14 @@ public class TilesStatesManager {
 		if (leftLocation != -1)
 			nextStates.add(TilesStatesFactory.getInstance()
 					.createState(swapLocations(state, blankLocation, leftLocation), state));
-		int rightLocation = getRightLocation(blankLocation);
-		if (rightLocation != -1)
-			nextStates.add(TilesStatesFactory.getInstance()
-					.createState(swapLocations(state, blankLocation, rightLocation), state));
 		int topLocation = getTopLocation(blankLocation);
 		if (topLocation != -1)
 			nextStates.add(TilesStatesFactory.getInstance()
 					.createState(swapLocations(state, blankLocation, topLocation), state));
+		int rightLocation = getRightLocation(blankLocation);
+		if (rightLocation != -1)
+			nextStates.add(TilesStatesFactory.getInstance()
+					.createState(swapLocations(state, blankLocation, rightLocation), state));
 		int bottomLocation = getBottomLocation(blankLocation);
 		if (bottomLocation != -1)
 			nextStates.add(TilesStatesFactory.getInstance()
