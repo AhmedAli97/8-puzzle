@@ -25,19 +25,32 @@ public class TilesStatesFactory {
 	// node.
 	private final TilesState nullParent = new TilesState(-1);
 
-	public TilesState getRandomInitialState() {
+	// factory functions to interface with state creation
+	public TilesState createRandomInitialState() {
 		// list keeps the possible numbers in the tiles
 		Integer[] possibleNumbers = { 1, 2, 3, 4, 5, 6, 7, 8, TilesState.getEmptyValue() };
 		List<Integer> randomNumbers = Arrays.asList(possibleNumbers);
 		// Randomizing the numbers order
 		Collections.shuffle(randomNumbers);
 		// constructing the initial state with a null parent
-		return new TilesState(getValue(randomNumbers), getNullParent());
+		TilesState randomInitialState = new TilesState(getValue(randomNumbers), getNullParent());
+		randomInitialState.setDepth(0);
+		return randomInitialState;
 	}
-
+	public TilesState createInitialState(int value) {
+		TilesState initialState = new TilesState(value, getNullParent());
+		initialState.setDepth(0);
+		return initialState;
+	}
+	public TilesState createState(int value, TilesState parent) {
+		TilesState state = new TilesState(value, parent);
+		state.setDepth(parent.getDepth() + 1);
+		return state;
+	}
+	
 	// given a collection of the possible numbers to encode the state, it returns
 	// the encoding value
-	public int getValue(Collection<Integer> col) {
+	private int getValue(Collection<Integer> col) {
 		int value = 0;
 		Iterator<Integer> iterator = col.iterator();
 		int counter = 0;

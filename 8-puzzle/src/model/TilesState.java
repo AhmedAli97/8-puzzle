@@ -8,12 +8,14 @@ package model;
  * the value of the state
  * the parent state of this state for path finding
  * the accumulated cost of the path from the initial state to this state  
+ * the depth of this state in the search tree
  */
 public class TilesState {
 	// The required variables to be stored in the state
 	private int value;
 	private TilesState parent;
 	private int pathCost;
+	private int depth;
 	// we set the value corresponding to blank to be nine instead of zero for more
 	// convenience in implementation considering the case that the encoding value starts with a blank. 
 	private static int emptyValue = 9;
@@ -69,6 +71,14 @@ public class TilesState {
 
 	public static void setEmptyValue(int emptyValue) {
 		TilesState.emptyValue = emptyValue;
+	}
+
+	public int getDepth() {
+		return depth;
+	}
+
+	public void setDepth(int depth) {
+		this.depth = depth;
 	}
 
 }
