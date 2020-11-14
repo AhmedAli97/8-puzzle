@@ -33,4 +33,7 @@ public interface SearchAgent {
 	// Returns the running time of the search algorithm in seconds for performance
 	// measure
 	public float runningTime();
+
+	// Returns the number of nodes visited including the initial and goal states
+	public int nodesVisited();
 }

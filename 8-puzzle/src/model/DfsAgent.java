@@ -15,6 +15,7 @@ public class DfsAgent implements SearchAgent {
 	private int pathCost = 0;
 	private int searchDepth = 0;
 	private float runningTime = 0;
+	private int nodesVisited = 0;
 
 	@Override
 	public void setInitialState(TilesState state) {
@@ -34,12 +35,13 @@ public class DfsAgent implements SearchAgent {
 		ArrayList<Integer> frontierValues = new ArrayList<Integer>();
 		addFrontier(initialState, frontier, frontierValues);
 		// Set here is implemented as an array list of integers for convenience to check
-		// duplications
+		// duplicationsF
 		ArrayList<Integer> explored = new ArrayList<Integer>();
 		while (!frontier.isEmpty()) {
 			// exploring the current state on top of the stack
 			TilesState currentState = frontier.pop();
 			explored.add(currentState.getValue());
+			nodesVisited++;
 			if (TilesStatesManager.getInstance().isGoalState(currentState)) {
 				// end time in case the goal was found
 				long end = System.currentTimeMillis();
@@ -66,7 +68,7 @@ public class DfsAgent implements SearchAgent {
 		return false;
 	}
 
-	// Adds the frontier and updates the stsate variables according to it
+	// Adds the frontier and updates the state variables according to it
 	private void addFrontier(TilesState state, Stack<TilesState> frontier, ArrayList<Integer> frontierValues) {
 		frontier.push(state);
 		frontierValues.add(state.getValue());
@@ -111,4 +113,8 @@ public class DfsAgent implements SearchAgent {
 		return runningTime;
 	}
 
+	@Override
+	public int nodesVisited() {
+		return nodesVisited;
+	}
 }
