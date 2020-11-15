@@ -30,9 +30,9 @@ public interface SearchAgent {
 	// initially considered to be the max path cost found)
 	public int searchDepth();
 
-	// Returns the running time of the search algorithm in seconds for performance
+	// Returns the running time of the search algorithm in milli seconds for performance
 	// measure
-	public float runningTime();
+	public long runningTime();
 
 	// Returns the number of nodes visited including the initial and goal states
 	public int nodesVisited();

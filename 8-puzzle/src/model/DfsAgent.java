@@ -14,7 +14,7 @@ public class DfsAgent implements SearchAgent {
 	private long nodesExpanded = 0;
 	private int pathCost = 0;
 	private int searchDepth = 0;
-	private float runningTime = 0;
+	private long runningTime = 0;
 	private int nodesVisited = 0;
 
 	@Override
@@ -46,7 +46,7 @@ public class DfsAgent implements SearchAgent {
 				// end time in case the goal was found
 				long end = System.currentTimeMillis();
 				// calculating running time in seconds
-				runningTime = (end - start) / 1000;
+				runningTime = (end - start);
 				createPathToGoal(currentState);
 				return true;
 			}
@@ -64,7 +64,7 @@ public class DfsAgent implements SearchAgent {
 		// end time in case the goal was found
 		long end = System.currentTimeMillis();
 		// calculating running time in seconds
-		runningTime = (end - start) / 1000;
+		runningTime = (end - start);
 		return false;
 	}
 
@@ -109,7 +109,7 @@ public class DfsAgent implements SearchAgent {
 	}
 
 	@Override
-	public float runningTime() {
+	public long runningTime() {
 		return runningTime;
 	}
 
