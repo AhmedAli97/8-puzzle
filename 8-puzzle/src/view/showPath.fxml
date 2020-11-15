@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="300.0" prefWidth="600.0" style="-fx-background-color: #c4cebc;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.showPathController">
+   <children>
+      <GridPane gridLinesVisible="true" layoutX="240.0" layoutY="105.0" prefWidth="129.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <TextField fx:id="index0" prefHeight="30.0" prefWidth="30.0" />
+            <TextField fx:id="index1" prefHeight="30.0" prefWidth="30.0" GridPane.columnIndex="1" />
+            <TextField fx:id="index2" prefHeight="30.0" prefWidth="30.0" GridPane.columnIndex="2" />
+            <TextField fx:id="index3" prefHeight="30.0" prefWidth="30.0" GridPane.rowIndex="1" />
+            <TextField fx:id="index4" prefHeight="30.0" prefWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <TextField fx:id="index5" prefHeight="30.0" prefWidth="30.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+            <TextField fx:id="index6" prefHeight="30.0" prefWidth="30.0" GridPane.rowIndex="2" />
+            <TextField fx:id="index7" prefHeight="30.0" prefWidth="30.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField fx:id="index8" prefHeight="30.0" prefWidth="30.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+         </children>
+      </GridPane>
+      <Button fx:id="previousBtn" contentDisplay="CENTER" layoutX="54.0" layoutY="113.0" mnemonicParsing="false" onAction="#getPreviousPath" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="66.0" fitWidth="74.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Actions-go-previous-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <Button fx:id="nextBtn" contentDisplay="CENTER" layoutX="464.0" layoutY="113.0" mnemonicParsing="false" onAction="#getNextPath" style="-fx-background-color: transparent;">
+         <graphic>
+            <ImageView fitHeight="75.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/Actions-go-next-icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
